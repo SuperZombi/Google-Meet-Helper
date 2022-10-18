@@ -17,7 +17,7 @@ chrome.storage.sync.get(null, results => {
 			} else{ input = elements[0]; }
 			if (input.type == "radio" || input.type == "checkbox"){
 				input.checked = value
-			}
+			} else{ input.value = value }
 			checkSub(input.parentNode)
 			input.parentNode.onclick=_=>{
 				checkSub(input.parentNode)
@@ -49,8 +49,15 @@ function initSave(){
 					settings[el.name] = el.value
 				}
 			}
+			else{
+				if (el.value.trim()){
+					settings[el.name] = el.value.trim()
+				}
+				else{
+					chrome.storage.sync.remove(el.name)
+				}
+			}
 		})
-
 		chrome.storage.sync.set({
 			...settings
 			}, _ => {

@@ -7,14 +7,8 @@
    "content_scripts": [{
       "matches": ["https://meet.google.com/*"],
       "js": ["script.js"],
-      "run_at": "document_end"
+      "run_at": "document_start"
    }],
-   "web_accessible_resources": [
-      {
-         "resources": [ "myscript.js" ],
-         "matches": [ "https://meet.google.com/*" ]
-      }
-   ],
    "action": {
       "default_popup": "menu/options.html",
       "default_icon": {

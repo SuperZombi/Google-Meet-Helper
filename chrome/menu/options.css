@@ -43,6 +43,16 @@ label input[type="checkbox"]{
 	border-width: 0 0 3px 3px;
 	margin-top: -8px;
 }
+.additionally{
+	margin-top: 10px;
+}
+.additionally label{
+	justify-content: flex-end;
+}
+.additionally input{
+	width: 50%;
+	text-align: center;
+}
 #save {
 	display: block;
 	margin-left: auto;

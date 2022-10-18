@@ -27,6 +27,32 @@
 			<input class="form-check-input" type="checkbox" name="AutoSkipAlerts">
 			<a class="cursor">__MSG_AutoSkipAlerts__</a>
 		</label>
+
+		<details class="additionally">
+			<summary>__MSG_additionally__</summary>
+		
+			<label>
+				<a class="cursor">__MSG_account__:</a>
+				<input class="form-check-input" list="account_labels" name="account">
+				<datalist id="account_labels">
+					<option value="0">
+					<option value="1">
+					<option value="2">
+					<option value="@gmail.com">
+				</datalist>
+			</label>
+
+			<label>
+				<a class="cursor">__MSG_language__:</a>
+				<input class="form-check-input" list="language_labels" name="language">
+				<datalist id="language_labels">
+					<option value="en">
+					<option value="ru">
+					<option value="uk">
+				</datalist>
+			</label>
+		</details>
+
 	</details>
 
 	<hr>

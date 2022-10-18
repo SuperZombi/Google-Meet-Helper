@@ -38,6 +38,16 @@
       "message": "Volume"
    },
 
+   "additionally": {
+      "message": "Additionally"
+   },
+   "account": {
+      "message": "Account"
+   },
+   "language": {
+      "message": "Language"
+   },
+
    "resetBut": {
       "message": "Reset"
    },

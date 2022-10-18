@@ -37,6 +37,16 @@
    "volume": {
       "message": "Громкость"
    },
+   
+   "additionally": {
+      "message": "Дополнительно"
+   },
+   "account": {
+      "message": "Аккаунт"
+   },
+   "language": {
+      "message": "Язык"
+   },
 
    "resetBut": {
       "message": "Сбросить"

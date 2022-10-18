@@ -37,6 +37,16 @@
    "volumeController": {
       "message": "Гучність"
    },
+      
+   "additionally": {
+      "message": "Додатково"
+   },
+   "account": {
+      "message": "Акаунт"
+   },
+   "language": {
+      "message": "Мова"
+   },
 
    "resetBut": {
       "message": "Скинути"

@@ -1,7 +1,11 @@
 var Settings = {}
 chrome.storage.sync.get({ AutoJoin: false, AutoMute: false, AutoSkipAlerts: false,
-						  Fullscreen: true, fullscreen_hotkey: true, volumeController: true
-						  }, results => { Settings = results; });
+						  Fullscreen: true, fullscreen_hotkey: true, volumeController: true,
+						  account: null, language: null
+						  }, results => {
+						  	Settings = results;
+						  	url_worker();
+						  });
 
 chrome.storage.sync.onChanged.addListener(function (changes, namespace) {
 	chrome.storage.sync.get({ AutoJoin: false, AutoMute: false, AutoSkipAlerts: false,
@@ -9,10 +13,28 @@ chrome.storage.sync.onChanged.addListener(function (changes, namespace) {
 						  }, results => { Settings = results; main(); });
 });
 
+function url_worker(){
+	if (window.location.pathname != "/"){
+		if (Settings.account && Settings.language){
+			let old_url = new URL(window.location);
+			let new_url = new URL(window.location);
+			if (Settings.account){
+				new_url.searchParams.set("authuser", Settings.account)
+			}
+			if (Settings.language){
+				new_url.searchParams.set("hl", Settings.language)
+			}
+			if (old_url.href != new_url.href){
+				window.location.href = new_url.href;
+			}
+		}
+	}
+}
+
 var first_load = true;
 window.onload = function() { main() }
 function main(){
-	if (window.location.pathname != ""){
+	if (window.location.pathname != "/"){
 		if (!first_load){in_meet_main()}
 		else{
 			if (Settings.AutoSkipAlerts){
