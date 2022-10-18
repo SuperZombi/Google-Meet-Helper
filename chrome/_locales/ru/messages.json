@@ -1,0 +1,47 @@
+{
+   "extName": {
+      "message": "Google Meet Помощник"
+   },
+   "extDesc": {
+      "message": ""
+   },
+   "settings": {
+      "message": "Настройки"
+   },
+   "SigninSettings": {
+      "message": "Настройки входа"
+   },
+   "MeetingSettings": {
+      "message": "Настройки встречи"
+   },
+
+   "AutoJoin": {
+      "message": "Автоматическое присоединение"
+   },
+   "AutoMute": {
+      "message": "Отключать камеру и микрофон"
+   },
+   "AutoSkipAlerts": {
+      "message": "Пропустить оповещения"
+   },
+
+   "FullScreen": {
+      "message": "Полный экран"
+   },
+   "FullScreen_HotKey": {
+      "message": "Горячая клавиша"
+   },
+   "volumeController": {
+      "message": "Регулятор громкости"
+   },
+   "volume": {
+      "message": "Громкость"
+   },
+
+   "resetBut": {
+      "message": "Сбросить"
+   },
+   "saveBut": {
+      "message": "Сохранить"
+   }
+}

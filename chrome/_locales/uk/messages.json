@@ -1,0 +1,47 @@
+{
+   "extName": {
+      "message": "Google Meet Помічник"
+   },
+   "extDesc": {
+      "message": ""
+   },
+   "settings": {
+      "message": "Налаштування"
+   },
+   "SigninSettings": {
+      "message": "Налаштування входу"
+   },
+   "MeetingSettings": {
+      "message": "Налаштування зустрічі"
+   },
+
+   "AutoJoin": {
+      "message": "Автоматичне приєднання"
+   },
+   "AutoMute": {
+      "message": "Відкючати камеру та мікрофон"
+   },
+   "AutoSkipAlerts": {
+      "message": "Пропустити оповіщення"
+   },
+
+   "FullScreen": {
+      "message": "Повний екран"
+   },
+   "FullScreen_HotKey": {
+      "message": "Гаряча клавіша"
+   },
+   "volumeController": {
+      "message": "Регулятор гучності"
+   },
+   "volumeController": {
+      "message": "Гучність"
+   },
+
+   "resetBut": {
+      "message": "Скинути"
+   },
+   "saveBut": {
+      "message": "Зберегти"
+   }
+}

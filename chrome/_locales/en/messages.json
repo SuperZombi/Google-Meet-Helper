@@ -1,0 +1,47 @@
+{
+   "extName": {
+      "message": "Google Meet Helper"
+   },
+   "extDesc": {
+      "message": ""
+   },
+   "settings": {
+      "message": "Settings"
+   },
+   "SigninSettings": {
+      "message": "Signin Settings"
+   },
+   "MeetingSettings": {
+      "message": "Meeting Settings"
+   },
+
+   "AutoJoin": {
+      "message": "Auto Join"
+   },
+   "AutoMute": {
+      "message": "Disable camera and microphone"
+   },
+   "AutoSkipAlerts": {
+      "message": "Skip Alerts"
+   },
+
+   "FullScreen": {
+      "message": "Full screen"
+   },
+   "FullScreen_HotKey": {
+      "message": "HotKey"
+   },
+   "volumeController": {
+      "message": "Volume Controller"
+   },
+   "volume": {
+      "message": "Volume"
+   },
+
+   "resetBut": {
+      "message": "Reset"
+   },
+   "saveBut": {
+      "message": "Save"
+   }
+}
