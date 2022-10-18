@@ -30,6 +30,6 @@
       "page": "menu/options.html"
    },
    "permissions": [ "storage" ],
-   "homepage_url": "https://github.com/SuperZombi/",
+   "homepage_url": "https://github.com/SuperZombi/Google-Meet-Helper",
    "minimum_chrome_version": "71.0.3578.80"
 }
