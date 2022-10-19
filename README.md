@@ -23,3 +23,11 @@
 ### Tampermonkey:
   1. Install **[Tampermonkey](https://www.tampermonkey.net/)**.
   2. Install **[Script](https://raw.githubusercontent.com/SuperZombi/Google-Meet-Helper/main/meet.user.js)**.
+
+
+## Overview:
+<details>
+  <summary></summary>
+  <img src="github/images/overview/overview1.png" width="800px">
+  <img src="github/images/overview/overview2.png" width="800px">
+</details>
