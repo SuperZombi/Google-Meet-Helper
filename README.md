@@ -61,6 +61,8 @@
    </details>
   </details>
   
+  <hr>
+  
    ### Open Settings
    <details>
    <summary></summary>
@@ -79,3 +81,8 @@
    </details>
   </details>  
 </details>
+
+
+<hr>
+
+#### <a href="https://www.donationalerts.com/r/super_zombi">Support the project</a> (But now it's better to email me and I'll send you the details)
