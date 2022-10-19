@@ -35,18 +35,29 @@
 ## Detailed Instructions
 <details>
   <summary></summary>
-  
-  ### Install
-  #### Chrome
-  <details>
-  <summary></summary>
-    <img src="github/images/install/chrome/1.png" width="800px">
-    <img src="github/images/install/chrome/2.png" width="800px">
-    <img src="github/images/install/chrome/3.png" width="800px">
-    <img src="github/images/install/chrome/4.png">
-    <img src="github/images/install/chrome/5.png">
-    <img src="github/images/install/chrome/6.png" width="800px">
-    <img src="github/images/install/chrome/7.png" width="800px">
-    <img src="github/images/install/chrome/8.png">
-  </details>
+    
+   ### Install
+   <details>
+   <summary></summary>
+   
+   #### Chrome
+   <details>
+   <summary></summary>
+     <img src="github/images/install/chrome/1.png" width="800px">
+     <img src="github/images/install/chrome/2.png" width="800px">
+     <img src="github/images/install/chrome/3.png" width="800px">
+     <img src="github/images/install/chrome/4.png">
+     <img src="github/images/install/chrome/5.png">
+     <img src="github/images/install/chrome/6.png" width="800px">
+     <img src="github/images/install/chrome/7.png" width="800px">
+     <img src="github/images/install/chrome/8.png">
+   </details>
+        
+   #### Tampermonkey
+   <details>
+   <summary></summary>
+     <img src="github/images/install/monk/monk1.png" width="800px">
+     <img src="github/images/install/monk/monk2.png" width="800px">
+   </details>
+  </details>  
 </details>
