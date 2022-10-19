@@ -28,6 +28,6 @@
 ## Overview:
 <details>
   <summary></summary>
-  <img src="github/images/overview/overview1.png" width="800px">
-  <img src="github/images/overview/overview2.png" width="800px">
+  <img src="github/images/overview/view1.png" width="800px">
+  <img src="github/images/overview/view2.png" width="800px">
 </details>
