@@ -59,5 +59,23 @@
      <img src="github/images/install/monk/monk1.png" width="800px">
      <img src="github/images/install/monk/monk2.png" width="800px">
    </details>
+  </details>
+  
+   ### Open Settings
+   <details>
+   <summary></summary>
+   
+   #### Chrome
+   <details>
+   <summary></summary>
+     <img src="github/images/open_settings/chrome1.png" width="800px">
+   </details>
+        
+   #### Tampermonkey
+   <details>
+   <summary></summary>
+     <img src="github/images/open_settings/monk1.png" width="800px">
+     <img src="github/images/open_settings/monk2.png">
+   </details>
   </details>  
 </details>
