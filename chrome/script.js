@@ -227,6 +227,7 @@ function in_meet_main(){
 				let newVol = Math.pow(volume, 1.25)
 				document.querySelectorAll('audio, video').forEach(function (el) {
 					el.volume = newVol;
+					el.play();
 				});
 			};
 			setInterval(_=>{
