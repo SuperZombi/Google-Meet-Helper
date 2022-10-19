@@ -31,3 +31,22 @@
   <img src="github/images/overview/view1.png" width="800px">
   <img src="github/images/overview/view2.png" width="800px">
 </details>
+
+## Detailed Instructions
+<details>
+  <summary></summary>
+  
+  ### Install
+  #### Chrome
+  <details>
+  <summary></summary>
+    <img src="github/images/install/chrome/1.png" width="800px">
+    <img src="github/images/install/chrome/2.png" width="800px">
+    <img src="github/images/install/chrome/3.png" width="800px">
+    <img src="github/images/install/chrome/4.png">
+    <img src="github/images/install/chrome/5.png">
+    <img src="github/images/install/chrome/6.png" width="800px">
+    <img src="github/images/install/chrome/7.png" width="800px">
+    <img src="github/images/install/chrome/8.png">
+  </details>
+</details>
