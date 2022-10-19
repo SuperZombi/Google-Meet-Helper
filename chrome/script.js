@@ -15,7 +15,7 @@ chrome.storage.sync.onChanged.addListener(function (changes, namespace) {
 
 function url_worker(){
 	if (window.location.pathname != "/"){
-		if (Settings.account && Settings.language){
+		if (Settings.account || Settings.language){
 			let old_url = new URL(window.location);
 			let new_url = new URL(window.location);
 			if (Settings.account){
