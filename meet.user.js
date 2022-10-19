@@ -178,7 +178,7 @@ GM_registerMenuCommand(get_message("settings"), ()=>{
 			
 				<label style="display:block; cursor:pointer; text-align: right; padding-bottom: 5px; padding-top: 5px;">
 					<span>${get_message('account')}:</span>
-					<input list="account_labels" name="account" style="width: 50%">
+					<input list="account_labels" name="account" style="width: 50%; text-align: center;">
 					<datalist id="account_labels">
 						<option value="0">
 						<option value="1">
@@ -189,7 +189,7 @@ GM_registerMenuCommand(get_message("settings"), ()=>{
 
 				<label style="display:block; cursor:pointer; text-align: right; padding-bottom: 5px;">
 					<span>${get_message('language')}:</span>
-					<input list="language_labels" name="language" style="width: 50%">
+					<input list="language_labels" name="language" style="width: 50%; text-align: center;">
 					<datalist id="language_labels">
 						<option value="en">
 						<option value="ru">
