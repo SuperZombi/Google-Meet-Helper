@@ -3,8 +3,15 @@
 # Google Meet Helper
 <img src="https://shields.io/badge/version-v1.0-blue">
 
-## Installation:
+## Features:
+  * Automatically join a meeting.
+  * Auto mute microphone and camera.
+  * Skiping annoying alerts.
+  * Automatic account and language switching.
+  * Full screen mode (shows only the presenter screen and nothing else).
+  * Volume adjustment
 
+## Installation:
 ### Chrome:
   1. Download latest **[Release](https://github.com/SuperZombi/Google-Meet-Helper/releases)**.
   2. Extract the archive to an installation location.
