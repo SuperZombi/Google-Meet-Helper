@@ -37,6 +37,9 @@
    "volume": {
       "message": "Громкость"
    },
+   "pictureInPicture":{
+      "message": "Картинка в Картинке"
+   },
    
    "additionally": {
       "message": "Дополнительно"

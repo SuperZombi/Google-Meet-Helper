@@ -37,6 +37,9 @@
    "volumeController": {
       "message": "Гучність"
    },
+   "pictureInPicture":{
+      "message": "Картинка в Картинці"
+   },
       
    "additionally": {
       "message": "Додатково"

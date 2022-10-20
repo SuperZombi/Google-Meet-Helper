@@ -37,6 +37,9 @@
    "volume": {
       "message": "Volume"
    },
+   "pictureInPicture":{
+      "message": "Picture in Picture"
+   },
 
    "additionally": {
       "message": "Additionally"
