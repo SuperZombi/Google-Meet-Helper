@@ -594,17 +594,19 @@ function in_meet_main(){
 }
 
 function openInFullScreen(){
-		if (document.fullscreenElement){
-			document.exitFullscreen();
-		}
-		else{
-			let element = [...document.querySelectorAll("video")].filter(x=>x.style.display!="none")[0];
-			if (element){element.requestFullscreen()}
-		}
+	if (document.fullscreenElement){
+		document.exitFullscreen();
 	}
+	else{
+		let element = [...document.querySelectorAll("video")].filter(x=>x.style.display!="none")[0];
+		if (element){element.requestFullscreen()}
+	}
+}
 function hotKeyFullscreenHandler(e){
 	if (e.keyCode == 70){
-		openInFullScreen()
+		if (document.activeElement.tagName.toLowerCase() !== "textarea"){
+			openInFullScreen()
+		}
 	}
 }
  
