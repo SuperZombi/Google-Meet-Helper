@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Google Meet Helper
-// @version      1.0
+// @version      1.1
 // @description  Adds additional tools to Google Meets. Automatically join meetings, turn off the camera and microphone, and other.
 // @author       Super Zombi
 // @match        https://meet.google.com/*
@@ -39,6 +39,7 @@ const locale = {
 		"additionally": "Additionally",
 		"account": "Account",
 		"language": "Language",
+		"pictureInPicture": "Picture in Picture",
 		"saveBut": "Save",
 		"closeBut": "Close",
 		"resetBut": "Reset"
@@ -57,6 +58,7 @@ const locale = {
 		"additionally": "Дополнительно",
 		"account": "Аккаунт",
 		"language": "Язык",
+		"pictureInPicture": "Картинка в Картинке",
 		"saveBut": "Сохранить",
 		"closeBut": "Закрыть",
 		"resetBut": "Сбросить"
@@ -75,6 +77,7 @@ const locale = {
 		"additionally": "Додатково",
 		"account": "Акаунт",
 		"language": "Мова",
+		"pictureInPicture": "Картинка в Картинці",
 		"saveBut": "Зберегти",
 		"closeBut": "Закрити",
 		"resetBut": "Скинути"
@@ -215,9 +218,14 @@ GM_registerMenuCommand(get_message("settings"), ()=>{
 				</label>
 			</label>
 
-			<label style="display:block; cursor:pointer; text-align: left;">
+			<label style="display:block; cursor:pointer; text-align: left; padding-bottom: 5px;">
 				<input type="checkbox" name="volumeController" checked>
 				<span>${get_message('volumeController')}</span>
+			</label>
+
+			<label style="display:block; cursor:pointer; text-align: left;">
+				<input type="checkbox" name="PictureInPicture" checked>
+				<span>${get_message('pictureInPicture')}</span>
 			</label>
 		</details>
 
@@ -233,7 +241,7 @@ GM_registerMenuCommand(get_message("settings"), ()=>{
 				<span style="margin-left:5px; ${dark_theme ? "color: #00c0ff;" : "color: blue;"}">GitHub</span>
 			</a>
 
-			<img style="margin-top:2px;" src="https://shields.io/badge/version-v1.0-blue">
+			<img style="margin-top:2px;" src="https://shields.io/badge/version-v1.1-blue">
 		</p>
 	`
 	div.appendChild(content)
@@ -412,17 +420,25 @@ function get_mic_and_vid_controls(){
 	return false
 }
 
+var pictureInPictureInterval;
 function in_meet_main(){
+	var menu_items;
+	let temp = document.querySelector('div[jsname="tc8lHd"]')
+	if (!temp.querySelector("#meetHelperTools")){
+		menu_items = document.createElement("div")
+		menu_items.id = "meetHelperTools"
+		temp.appendChild(menu_items)
+	} else{ menu_items = temp.querySelector("#meetHelperTools") }
+
 	if (db_get("volumeController", true)){
 		if (!document.querySelector("#volumeController")){
 			var currentVolume = 1;
-			let menu_items = document.querySelector('div[jsname="tc8lHd"]')
 			let div = document.createElement("div")
 			div.id = "volumeController"
 			div.style.height = "48px"; div.style.width = "48px";
 			div.style.cursor = "pointer";
 			div.style.position = "relative";
-			div.style.display = "flex";
+			div.style.display = "inline-flex";
 			div.style.alignItems = "center"; div.style.placeContent = "center";
 			div.style.borderRadius = "50px";
 			div.style.transition = "0.2s ease";
@@ -535,7 +551,7 @@ function in_meet_main(){
 			setInterval(_=>{
 				setAllVolume(currentVolume)
 			}, 200)
-			menu_items.appendChild(div)
+			menu_items.prepend(div)
 		}
 	}
 	else{
@@ -545,12 +561,11 @@ function in_meet_main(){
 
 	if (db_get("Fullscreen", true)){
 		if (!document.querySelector("#MeetFullScreen")){
-			let menu_items = document.querySelector('div[jsname="tc8lHd"]')
 			let div = document.createElement("div")
 			div.id = "MeetFullScreen"
 			div.style.height = "48px"; div.style.width = "48px";
 			div.style.cursor = "pointer";
-			div.style.display = "flex";
+			div.style.display = "inline-flex";
 			div.style.alignItems = "center"; div.style.placeContent = "center";
 			div.style.transition = "0.2s ease";
 			div.style.borderRadius = "50px";
@@ -570,11 +585,11 @@ function in_meet_main(){
 			div.addEventListener("mouseleave", _=> {
 				div.style.background = ""
 			})
-			div.children[0].addEventListener("mouseenter", _=> {
+			div.addEventListener("mouseenter", _=> {
 				div.children[0].style.transform = "scale(1.15)"
 				setTimeout(function(){ div.children[0].style.transform = "" }, 200)
 			})
-			div.children[0].addEventListener("click", _=>{
+			div.addEventListener("click", _=>{
 				openInFullScreen()
 			})
 			menu_items.appendChild(div)
@@ -590,6 +605,64 @@ function in_meet_main(){
 	}
 	else{
 		window.removeEventListener("keydown", hotKeyFullscreenHandler)
+	}
+
+	if (db_get("PictureInPicture", true)){
+		pictureInPictureInterval = setInterval(_=>{
+			let arr = [...document.querySelectorAll("video")].filter(x=>x.style.display!="none")
+			if (arr.length > 0){
+				if (!document.querySelector("#MeetPictureInPicture")){
+					let div = document.createElement("div")
+					div.id = "MeetPictureInPicture"
+					div.style.height = "48px"; div.style.width = "48px";
+					div.style.cursor = "pointer";
+					div.style.alignItems = "center"; div.style.placeContent = "center";
+					div.style.transition = "0.2s ease";
+					div.style.borderRadius = "50px";
+					div.style.display = "none";
+					div.title = get_message("pictureInPicture")
+					div.innerHTML = `
+						<svg height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="#fff"
+							style="transition: 0.25s ease;">
+							<path id="pip_arrow" style="transform-origin: center center; transition: 0.2s" d="M202.2 27.553c-5.25 2.85-7.2 6.6-7.2 13.502s3.45 12.153 9.3 14.103c2.55.9 13.2 1.65 23.55 1.65h18.75l-51.3 51.46-51.3 51.46v7.652c0 6.752.6 8.102 4.65 11.553 3.3 2.85 6.3 3.9 10.8 3.9 6.15 0 6.6-.45 58.35-52.06l52.2-52.21v20.704c0 23.255 1.35 27.905 8.85 31.056 6.3 2.55 14.25.75 18.15-4.05 2.85-3.751 3-5.852 3-47.86v-43.96l-3.6-4.2-3.6-4.2-43.35-.3c-36.15-.3-43.8 0-47.25 1.8Z"/>
+							<path d="M3.9 63.709 0 67.759V267l3.75 3.6 3.6 3.751H258.3l4.35-4.35 4.35-4.352V219.59c0-48.76-.45-52.51-7.35-56.26-5.25-2.701-13.05-1.801-18 2.4l-4.65 3.9v74.715H30V89.814h123.3l4.35-4.351c6.15-6.151 6.15-15.153 0-21.304l-4.35-4.351H7.95l-4.05 3.9Z"/>
+						</svg>
+					`
+					div.addEventListener("mouseenter", _=> {
+						div.style.background = "rgb(255, 255, 255, 0.05)"
+					})
+					div.addEventListener("mouseleave", _=> {
+						div.style.background = ""
+					})
+					div.addEventListener("mouseenter", _=> {
+						div.children[0].style.transform = "scale(1.15)"
+						setTimeout(function(){ div.children[0].style.transform = "" }, 200)
+					})
+					div.addEventListener("click", _=>{
+						openInPicture()
+					})
+					document.addEventListener('enterpictureinpicture', () => {
+						div.querySelector("#pip_arrow").style.transform = "scale(-1, -1) translate(-115px, 60px)"
+					})
+					document.addEventListener("leavepictureinpicture", _=> {
+						div.querySelector("#pip_arrow").style.transform = ""
+					})
+					menu_items.prepend(div)
+				}
+				else{
+					document.querySelector("#MeetPictureInPicture").style.display = "inline-flex"
+				}
+			}
+			else{
+				let el = document.querySelector("#MeetPictureInPicture");
+				if (el){ el.style.display = "none"}
+			}
+		}, 500)
+	}
+	else{
+		if (pictureInPictureInterval){clearInterval(pictureInPictureInterval)}
+		let el = document.querySelector("#MeetPictureInPicture")
+		if (el){ el.remove() }
 	}
 }
 
@@ -608,6 +681,16 @@ function hotKeyFullscreenHandler(e){
 			openInFullScreen()
 		}
 	}
+}
+
+function openInPicture(){
+	if (document.pictureInPictureElement){
+		document.exitPictureInPicture();
+	}
+	else{
+		let element = [...document.querySelectorAll("video")].filter(x=>x.style.display!="none")[0];
+		if (element){element.requestPictureInPicture()}
+	}	
 }
  
 })();
