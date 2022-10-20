@@ -9,7 +9,8 @@
   * Skiping annoying alerts.
   * Automatic account and language switching.
   * Full screen mode (shows only the presenter screen and nothing else).
-  * Volume adjustment
+  * Volume adjustment.
+  * Picture in Picture.
 
 ## Installation:
 ### Chrome:
@@ -82,6 +83,12 @@
   </details>  
 </details>
 
+
+## List of changes:
+  ### 1.1:
+   * Fixed fullscreen hotkey conflict with chat
+   * Added Picture in Picture feature
+   * Bug fixes
 
 <hr>
 
