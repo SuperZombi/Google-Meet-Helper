@@ -146,8 +146,9 @@ function in_meet_main(){
 				div.style.background = ""
 			})
 			document.body.addEventListener("mousedown", e=>{
-				if (e.path.includes(div)){
-					if (e.path.includes(div.querySelector("div"))){ return }
+				let path = event.path || (event.composedPath && event.composedPath());
+				if (path.includes(div)){
+					if (path.includes(div.querySelector("div"))){ return }
 					let result = div.querySelector("div").style.visibility == "hidden" ? "visible" : "hidden";
 					div.querySelector("div").style.visibility = result;
 					if (result == "visible"){

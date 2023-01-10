@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Google Meet Helper
-// @version      1.1
+// @version      1.2
 // @description  Adds additional tools to Google Meets. Automatically join meetings, turn off the camera and microphone, and other.
 // @author       Super Zombi
 // @match        https://meet.google.com/*
@@ -241,7 +241,7 @@ GM_registerMenuCommand(get_message("settings"), ()=>{
 				<span style="margin-left:5px; ${dark_theme ? "color: #00c0ff;" : "color: blue;"}">GitHub</span>
 			</a>
 
-			<img style="margin-top:2px;" src="https://shields.io/badge/version-v1.1-blue">
+			<img style="margin-top:2px;" src="https://shields.io/badge/version-v1.2-blue">
 		</p>
 	`
 	div.appendChild(content)
@@ -455,8 +455,9 @@ function in_meet_main(){
 				div.style.background = ""
 			})
 			document.body.addEventListener("mousedown", e=>{
-				if (e.path.includes(div)){
-					if (e.path.includes(div.querySelector("div"))){ return }
+				let path = event.path || (event.composedPath && event.composedPath());
+				if (path.includes(div)){
+					if (path.includes(div.querySelector("div"))){ return }
 					let result = div.querySelector("div").style.visibility == "hidden" ? "visible" : "hidden";
 					div.querySelector("div").style.visibility = result;
 					if (result == "visible"){
