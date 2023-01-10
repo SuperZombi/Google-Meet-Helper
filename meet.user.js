@@ -454,7 +454,7 @@ function in_meet_main(){
 			div.addEventListener("mouseleave", _=> {
 				div.style.background = ""
 			})
-			document.body.addEventListener("mousedown", e=>{
+			document.body.addEventListener("mousedown", event=>{
 				let path = event.path || (event.composedPath && event.composedPath());
 				if (path.includes(div)){
 					if (path.includes(div.querySelector("div"))){ return }
