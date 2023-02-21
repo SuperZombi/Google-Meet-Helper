@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Google Meet Helper
-// @version      1.2
+// @version      1.2.1
 // @description  Adds additional tools to Google Meets. Automatically join meetings, turn off the camera and microphone, and other.
 // @author       Super Zombi
 // @match        https://meet.google.com/*
@@ -241,7 +241,7 @@ GM_registerMenuCommand(get_message("settings"), ()=>{
 				<span style="margin-left:5px; ${dark_theme ? "color: #00c0ff;" : "color: blue;"}">GitHub</span>
 			</a>
 
-			<img style="margin-top:2px;" src="https://shields.io/badge/version-v1.2-blue">
+			<img style="margin-top:2px;" src="https://shields.io/badge/version-v1.2.1-blue">
 		</p>
 	`
 	div.appendChild(content)
@@ -423,7 +423,7 @@ function get_mic_and_vid_controls(){
 var pictureInPictureInterval;
 function in_meet_main(){
 	var menu_items;
-	let temp = document.querySelector('div[jsname="tc8lHd"]')
+	let temp = document.querySelector('div.tMdQNe')
 	if (!temp.querySelector("#meetHelperTools")){
 		menu_items = document.createElement("div")
 		menu_items.id = "meetHelperTools"

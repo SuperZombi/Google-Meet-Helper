@@ -114,7 +114,7 @@ function get_mic_and_vid_controls(){
 var pictureInPictureInterval;
 function in_meet_main(){
 	var menu_items;
-	let temp = document.querySelector('div[jsname="tc8lHd"]')
+	let temp = document.querySelector('div.tMdQNe')
 	if (!temp.querySelector("#meetHelperTools")){
 		menu_items = document.createElement("div")
 		menu_items.id = "meetHelperTools"
