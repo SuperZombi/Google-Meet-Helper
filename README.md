@@ -1,7 +1,11 @@
 <img src="github/images/icon.svg" width="25%" align="right">
 
 # Google Meet Helper
-<img src="https://shields.io/badge/version-v1.2.1-blue">
+
+<p align="right">
+    <img align="left" src="https://shields.io/badge/version-v1.2.1-blue">
+    <a href="#donate">💲Support the Project</a>
+</p>
 
 ## Features:
   * Automatically join a meeting.
@@ -99,4 +103,25 @@
 
 <hr>
 
-#### <a href="https://www.donationalerts.com/r/super_zombi">Support the project</a> (But now it's better to email me and I'll send you the details)
+#### 💲Donate
+
+<table>
+  <tr>
+    <td>
+       <img width="18px" src="https://www.google.com/s2/favicons?domain=https://donatello.to&sz=256">
+    </td>
+    <td>
+      <a href="https://donatello.to/super_zombi">Donatello</a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+       <img width="18px" src="https://www.google.com/s2/favicons?domain=https://www.donationalerts.com&sz=256">
+    </td>
+    <td>
+      <a href="https://www.donationalerts.com/r/super_zombi">Donation Alerts</a>
+    </td>
+  </tr>
+</table>
+    
+(But now it's better to email me and I'll send you the details)
