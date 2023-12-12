@@ -17,7 +17,10 @@
   * Picture in Picture.
 
 ## Installation:
-### Chrome:
+
+### [Chrome Web Store](https://chrome.google.com/webstore/detail/meet-helper/galifmjgghepcemfgfmjofdhnbkmbage)
+
+### Chrome (dev):
   1. Download latest **[Release](https://github.com/SuperZombi/Google-Meet-Helper/releases)**.
   2. Extract the archive to an installation location.
   3. ```⋮``` > "Additional tools" > "Extensions".
