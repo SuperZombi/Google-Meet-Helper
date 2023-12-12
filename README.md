@@ -1,9 +1,9 @@
 <img src="github/images/icon.svg" width="25%" align="right">
 
-# Google Meet Helper
+# Meet Helper
 
 <p align="right">
-    <img align="left" src="https://shields.io/badge/version-v1.2.1-blue">
+    <img align="left" src="https://shields.io/badge/version-v1.2.2-blue">
     <a href="#donate"><img src="https://shields.io/badge/💲-Support_the_Project-2ea043"></a>
 </p>
 
@@ -89,6 +89,9 @@
 
 
 ## List of changes:
+
+  ### 1.2.2:
+   * Volumer z-index
 
   ### 1.2.1:
    * Update to latest Google Meet changes

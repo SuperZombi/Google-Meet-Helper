@@ -171,6 +171,7 @@ function in_meet_main(){
 			slider_area.style.alignItems = "center";
 			slider_area.style.position = "absolute";
 			slider_area.style.bottom = "50px"
+			slider_area.style.zIndex = 100;
 			slider_area.style.filter = "drop-shadow(0 0 3px black)"
 
 			let input = document.createElement("input")
