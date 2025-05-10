@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Google Meet Helper
-// @version      1.2.2
+// @version      2.0.0
 // @description  Adds additional tools to Google Meets. Automatically join meetings, turn off the camera and microphone, and other.
 // @author       Super Zombi
 // @match        https://meet.google.com/*
@@ -31,7 +31,6 @@ const locale = {
 		"MeetingSettings": "Meeting Settings",
 		"AutoJoin": "Auto Join",
 		"AutoMute": "Disable camera and microphone",
-		"AutoSkipAlerts": "Skip Alerts",
 		"FullScreen": "Full screen",
 		"FullScreen_HotKey": "HotKey",
 		"volumeController": "Volume Controller",
@@ -50,7 +49,6 @@ const locale = {
 		"MeetingSettings": "Настройки встречи",
 		"AutoJoin": "Автоматическое присоединение",
 		"AutoMute": "Отключать камеру и микрофон",
-		"AutoSkipAlerts": "Пропустить оповещения",
 		"FullScreen": "Полный экран",
 		"FullScreen_HotKey": "Горячая клавиша",
 		"volumeController": "Регулятор громкости",
@@ -69,7 +67,6 @@ const locale = {
 		"MeetingSettings": "Налаштування зустрічі",
 		"AutoJoin": "Автоматичне приєднання",
 		"AutoMute": "Відкючати камеру та мікрофон",
-		"AutoSkipAlerts": "Пропустити оповіщення",
 		"FullScreen": "Повний екран",
 		"FullScreen_HotKey": "Гаряча клавіша",
 		"volumeController": "Регулятор гучності",
@@ -169,11 +166,6 @@ GM_registerMenuCommand(get_message("settings"), ()=>{
 			<label style="display:block; cursor:pointer; text-align: left; padding-bottom: 5px;">
 				<input style="cursor: pointer;" type="checkbox" name="AutoMute">
 				<span>${get_message('AutoMute')}</span>
-			</label>
-
-			<label style="display:block; cursor:pointer; text-align: left; padding-bottom: 5px;">
-				<input style="cursor: pointer;" type="checkbox" name="AutoSkipAlerts">
-				<span>${get_message('AutoSkipAlerts')}</span>
 			</label>
 
 			<details style="cursor:pointer;">
@@ -347,15 +339,9 @@ function main(){
 	if (window.location.pathname != "/"){
 		if (!first_load){in_meet_main()}
 		else{
-			if (db_get("AutoSkipAlerts", false)){
-				var interv = init_event_thrower(get_auto_skip, _=>{
-					get_auto_skip().querySelector("button").click()
-				})
-			}
-
 			if (db_get("AutoMute", false)){
 				init_event_thrower(get_mic_and_vid_controls, _=>{
-					document.querySelectorAll('div[jsname=BOHaEe]').forEach(function(e){
+					document.querySelectorAll('div[jsname=hw0c9], div[jsname=psRWwc]').forEach(function(e){
 						if (e.getAttribute("data-is-muted") != "true"){
 							e.click();
 						}
@@ -377,10 +363,6 @@ function main(){
 			}
 
 			init_event_thrower(is_in_meeting, _=>{
-				if (db_get("AutoSkipAlerts", false)){
-					try{clearInterval(interv)}catch{}
-					if (get_auto_skip()){get_auto_skip().querySelector("button").click()}
-				}
 				document.querySelectorAll('audio, video').forEach(function (el) {
 					el.play();
 				});
@@ -403,31 +385,28 @@ function init_event_thrower(func, callback, timeout=1000){
 }
 
 function is_in_meeting(){
-	if (document.querySelector("button[jsname=BOHaEe]")){
+	if (document.querySelector("button[jsname=CQylAd]")){
 		return true;
 	}
 	return false;
 }
 function get_join_button(){
-	return document.querySelector("button[jsname=Qx7uuf]")
-}
-function get_auto_skip(){
-	return document.querySelector('div[aria-modal="true"][role="alertdialog"]')
+	return document.querySelector("div[jsname=Qx7uuf] button")
 }
 function get_mic_and_vid_controls(){
-	let temp = document.querySelector('div[jsname=BOHaEe]')
-	if (temp){return temp.getAttribute("data-is-muted")}
-	return false
+	let mic = document.querySelector('div[jsname=hw0c9]')
+	let cam = document.querySelector('div[jsname=psRWwc]')
+	return mic && cam
 }
 
 var pictureInPictureInterval;
 function in_meet_main(){
 	var menu_items;
-	let temp = document.querySelector('div.tMdQNe')
+	let temp = document.querySelector('nav.tMdQNe')
 	if (!temp.querySelector("#meetHelperTools")){
 		menu_items = document.createElement("div")
 		menu_items.id = "meetHelperTools"
-		temp.appendChild(menu_items)
+		temp.prepend(menu_items)
 	} else{ menu_items = temp.querySelector("#meetHelperTools") }
 
 	if (db_get("volumeController", true)){
@@ -464,13 +443,16 @@ function in_meet_main(){
 						div.querySelector("span").style.top = "-20px"
 						div.querySelector("span").style.bottom = ""
 						div.querySelector("span").style.opacity = 1;
+						div.querySelector("input").style.opacity = 1;
 					}
 					else{
 						div.querySelector("span").style.opacity = 0;
+						div.querySelector("input").style.opacity = 0;
 					}
 				} else {
 					div.querySelector("div").style.visibility = "hidden";
 					div.querySelector("span").style.opacity = 0;
+					div.querySelector("input").style.opacity = 0;
 				}
 			})
 
@@ -485,14 +467,16 @@ function in_meet_main(){
 
 			let input = document.createElement("input")
 			input.type = "range"
-			input.setAttribute("orient", "vertical");
-			input.style.webkitAppearance = "slider-vertical";
+			input.style.writingMode = "vertical-lr"
+			input.style.direction = "rtl"
 			input.min = 0
 			input.max = 1
 			input.step = 0.1
 			input.value = 1
 			input.style.width = "6px"
 			input.style.cursor = "ns-resize"
+			input.style.transition = "0.4s"
+			input.style.opacity = 0;
 
 			function on_input_change(input_){
 				currentVolume = input_.value
@@ -534,7 +518,7 @@ function in_meet_main(){
 			text.style.top = "-20px";
 			text.style.left = "50%";
 			text.style.transform = "translateX(-50%)";
-			text.style.transition = "0.5s"
+			text.style.transition = "0.4s"
 			text.style.pointerEvents = "none";
 			text.style.visibility = "visible"
 			text.style.opacity = 0;
