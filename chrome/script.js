@@ -105,7 +105,7 @@ function in_meet_main(){
 	if (!temp.querySelector("#meetHelperTools")){
 		menu_items = document.createElement("div")
 		menu_items.id = "meetHelperTools"
-		temp.prepend(menu_items);
+		temp.prepend(menu_items)
 	} else{ menu_items = temp.querySelector("#meetHelperTools") }
 
 	if (Settings.volumeController){
@@ -332,7 +332,7 @@ function in_meet_main(){
 					document.addEventListener("leavepictureinpicture", _=> {
 						div.querySelector("#pip_arrow").style.transform = ""
 					})
-					menu_items.prepend(div)
+					menu_items.appendChild(div)
 				}
 				else{
 					document.querySelector("#MeetPictureInPicture").style.display = "inline-flex"
