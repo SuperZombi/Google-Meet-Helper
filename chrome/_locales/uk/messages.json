@@ -21,9 +21,6 @@
    "AutoMute": {
       "message": "Відкючати камеру та мікрофон"
    },
-   "AutoSkipAlerts": {
-      "message": "Пропустити оповіщення"
-   },
 
    "FullScreen": {
       "message": "Повний екран"

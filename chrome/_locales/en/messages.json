@@ -21,9 +21,6 @@
    "AutoMute": {
       "message": "Disable camera and microphone"
    },
-   "AutoSkipAlerts": {
-      "message": "Skip Alerts"
-   },
 
    "FullScreen": {
       "message": "Full screen"

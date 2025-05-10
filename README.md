@@ -3,14 +3,13 @@
 # Meet Helper
 
 <p align="right">
-    <img align="left" src="https://shields.io/badge/version-v1.2.2-blue">
+    <img align="left" src="https://shields.io/badge/version-v2.0.0-blue">
     <a href="#donate"><img src="https://shields.io/badge/💲-Support_the_Project-2ea043"></a>
 </p>
 
 ## Features:
   * Automatically join a meeting.
   * Auto mute microphone and camera.
-  * Skiping annoying alerts.
   * Automatic account and language switching.
   * Full screen mode (shows only the presenter screen and nothing else).
   * Volume adjustment.
@@ -92,6 +91,9 @@
 
 
 ## List of changes:
+
+  ### 2.0.0:
+   * Fixed errors after Google updated the interface.
 
   ### 1.2.2:
    * Volumer z-index
