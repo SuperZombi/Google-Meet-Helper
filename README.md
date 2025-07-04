@@ -1,4 +1,4 @@
-<img src="github/images/icon.svg" width="250px" align="right">
+<img src="github/images/icon.svg" width="200px" align="right">
 
 # Meet Helper
 
